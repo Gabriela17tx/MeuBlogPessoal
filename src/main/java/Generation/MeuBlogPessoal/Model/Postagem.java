@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
+
 @Entity
 @Table(name = "postagem")
 public class Postagem {
@@ -37,6 +38,12 @@ public class Postagem {
 	@JsonIgnoreProperties("postagem")
 	@ManyToOne
 	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
+	
+
 
 	public long getId() {
 		return id;
@@ -69,16 +76,22 @@ public class Postagem {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
+	
 	public Tema getTema() {
 		return tema;
 	}
-
+	
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
 	
+	public void Usuario (Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 	
 }
